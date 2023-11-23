@@ -37,8 +37,14 @@ Zusätzlich muss in der globalen Style-Datei `/src/style.sass` folgendes hinzuge
 
 Dies kann auch alles unter https://tailwindcss.com/docs/installation nachgelesen werden.
 
+### Angular Material
+```bash
+ng add @angular/material
+```
+
 ### Start der Anwendung
 ```bash
+npm i
 npm run start
 ng serve
 ```
