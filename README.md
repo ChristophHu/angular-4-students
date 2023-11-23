@@ -1,5 +1,8 @@
 # Angular4Students
 
+## Demo
+Unter https://christophhu.github.io/angular-4-students/ kann die Anwendung aufgerufen werden.
+
 ## Initialisierung
 ```bash
 # erstellen der Angular-Anwendung
