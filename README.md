@@ -37,3 +37,8 @@ Zusätzlich muss in der globalen Style-Datei `/src/style.sass` folgendes hinzuge
 
 Dies kann auch alles unter https://tailwindcss.com/docs/installation nachgelesen werden.
 
+### Start der Anwendung
+```bash
+npm run start
+ng serve
+```

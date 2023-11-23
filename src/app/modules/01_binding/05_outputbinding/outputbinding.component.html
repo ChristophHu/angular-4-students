@@ -1,0 +1,11 @@
+<div class="my-4">
+    <h3 class="leading-4 mb-2 text-xl">1.5 Output-Binding</h3>
+    <div class="p-2 bg-blue-200 rounded">
+        <div class="flex flex-row">
+            <input type="checkbox" [checked]="checkedEvent">
+            <span class="ml-2">Checkbox</span>
+        </div>
+        <h3 class="leading-4 mb-2 text-lg">Inputbinding-Component</h3>
+        <output-child (sendBackEvent)="parentFunction($event)"></output-child>
+    </div>
+</div>
