@@ -5,7 +5,12 @@
             <input type="checkbox" [checked]="checkedEvent">
             <span class="ml-2">Checkbox</span>
         </div>
-        <h3 class="leading-4 mb-2 text-lg">Inputbinding-Component</h3>
+        <h3 class="leading-4 mb-2 text-lg">Parent-Component</h3>
         <output-child (sendBackEvent)="parentFunction($event)"></output-child>
     </div>
+    <div class="flex flex-col">
+        <span>Beschreibung:</span>
+        <p class="text-gray-500">In einer Child-Component werden Veränderungen durchgeführt, die als Variable an die Parent-Component übergeben werden. Durch ein @Output und dem EventEmitter kann diese Variable zurüchgegeben werden.</p>
+    </div>
 </div>
+<hr>

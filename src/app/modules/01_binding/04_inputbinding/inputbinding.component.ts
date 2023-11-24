@@ -7,4 +7,8 @@ import { Component } from '@angular/core';
 })
 export class InputbindingComponent {
   parentVar: string = 'Input Binding Var'
+
+  updateParent(value: string) {
+    this.parentVar = value
+  }
 }
