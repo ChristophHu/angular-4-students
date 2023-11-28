@@ -1,26 +1,31 @@
-<form novalidate 
+<div class="my-4">
+  <h3 class="leading-4 mb-2 text-xl">2.1.2 Two-Way (mit ngModel)</h3>
+  <div class="grid grid-cols-2 gap-4">
+    <form novalidate 
       (ngSubmit)="saveTask(form.value)" 
-      #form="ngForm">
-  <div class="form-group">
-    <label for="title">Titel</label>
-    <input type="text"
-           class="form-control" 
-           name="title" 
-           [(ngModel)]="task.title"
-           required>
+      #form="ngForm"
+      class="p-4 bg-gray-50 rounded">
+      <div class="form-group">
+        <label class="my-2 text-sm leading-none text-light" for="title">Titel</label>
+        <div class="relative mt-1 flex items-center">
+          <input type="text" class="form-control" class="p-3 w-full bg-gray-100 border rounded border-gray-200 focus:outline-none focus:border-gray-600 text-sm font-medium leading-none text-light disabled:text-gray-400 disabled:pointer-events-none"
+            name="title"
+            [(ngModel)]="task.title"/>
+        </div>
+        <label class="my-2 text-sm leading-none text-light" for="description">Beschreibung</label>
+        <div class="relative mt-1 flex items-center">
+          <textarea class="form-control" class="p-3 w-full bg-gray-100 border rounded border-gray-200 focus:outline-none focus:border-gray-600 text-sm font-medium leading-none text-light disabled:text-gray-400 disabled:pointer-events-none"
+            name="description" 
+            [(ngModel)]="task.description">
+          </textarea>
+        </div>
+      </div>
+      <button type="submit" 
+        class="p-2 my-2 bg-blue-500 rounded-lg text-white"
+        [disabled]="!form.valid">
+      Aufgabe speichern
+      </button>
+    </form>
+    <pre class="p-4 bg-blue-200 rounded">{{ task | json }}</pre>
   </div>
-  <div class="form-group">
-    <label for="description">Beschreibung</label>
-    <textarea class="form-control" 
-              name="description" 
-              [(ngModel)]="task.description">
-    </textarea>
-  </div>
-  <button type="submit" 
-          class="btn btn-default"
-          [disabled]="!form.valid">
-	Aufgabe speichern
-  </button>
-</form>
-<pre>{{ task | json }}</pre>
-<pre>{{ form.valid }}</pre>
+</div>
