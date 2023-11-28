@@ -1,0 +1,26 @@
+<form novalidate 
+      (ngSubmit)="saveTask(form.value)" 
+      #form="ngForm">
+  <div class="form-group">
+    <label for="title">Titel</label>
+    <input type="text"
+           class="form-control" 
+           name="title" 
+           [(ngModel)]="task.title"
+           required>
+  </div>
+  <div class="form-group">
+    <label for="description">Beschreibung</label>
+    <textarea class="form-control" 
+              name="description" 
+              [(ngModel)]="task.description">
+    </textarea>
+  </div>
+  <button type="submit" 
+          class="btn btn-default"
+          [disabled]="!form.valid">
+	Aufgabe speichern
+  </button>
+</form>
+<pre>{{ task | json }}</pre>
+<pre>{{ form.valid }}</pre>

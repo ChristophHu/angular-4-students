@@ -1,0 +1,22 @@
+<form novalidate [formGroup]="taskForm" (ngSubmit)="saveTask(taskForm.value)">
+    <div class="form-group">
+      <label>Titel</label>
+      <input formControlName="title"/>
+    </div>
+    <!-- ...
+    <h4>Zuständiger</h4>
+    <div formGroupName="assignee">
+      <div class="form-group">
+        <label>Name</label>
+        <input type="text" class="form-control" formControlName="name"/>
+      </div>
+      <div class="form-group">
+        <label>E-Mail</label>
+        <input type="text" class="form-control" formControlName="email"/> </div>
+    </div>
+    ... -->
+    <button type="submit" class="btn btn-default" [disabled]="!taskForm.valid">
+      Aufgabe speichern
+    </button>
+  </form>
+  <pre>{{ taskForm | json }}</pre>
