@@ -1,0 +1,31 @@
+<div class="my-4">
+    <h3 class="leading-4 mb-2 text-xl">2.2.2 FormBuilder</h3>
+    <div class="grid grid-cols-2 gap-4">
+        <form [formGroup]="taskForm" class="p-4 bg-gray-50 rounded">
+            <div class="form-group">
+                <label class="my-2 text-sm leading-none text-light" for="title">Titel</label>
+                <div class="relative mt-1 flex items-center">
+                    <input type="text" name="title" formControlName="title" class="p-3 w-full bg-gray-100 border rounded border-gray-200 focus:outline-none focus:border-gray-600 text-sm font-medium leading-none text-light disabled:text-gray-400 disabled:pointer-events-none" />
+                </div>
+
+                <div formGroupName="assignee" class="p-2 my-2 mt-8 border border-gray-200">
+                    <div>
+                        <label class="my-2 text-sm leading-none text-light" for="title">Name</label>
+                        <div class="relative mt-1 flex items-center">
+                            <input type="text" name="title" formControlName="name" class="p-3 w-full bg-gray-100 border rounded border-gray-200 focus:outline-none focus:border-gray-600 text-sm font-medium leading-none text-light disabled:text-gray-400 disabled:pointer-events-none" />
+                        </div>
+                    </div>
+                    <div>
+                        <label class="my-2 text-sm leading-none text-light" for="title">E-Mail</label>
+                        <div class="relative mt-1 flex items-center">
+                            <input type="text" name="title" formControlName="email" class="p-3 w-full bg-gray-100 border rounded border-gray-200 focus:outline-none focus:border-gray-600 text-sm font-medium leading-none text-light disabled:text-gray-400 disabled:pointer-events-none" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+        <div class="p-4 bg-blue-200 rounded-lg">
+            <pre>{{ taskForm.value | json }}</pre>
+        </div>
+    </div>
+</div>

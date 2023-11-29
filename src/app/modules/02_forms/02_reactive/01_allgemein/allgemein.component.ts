@@ -12,19 +12,7 @@ export class AllgemeinComponent {
   
   constructor() {
     this.taskForm = new FormGroup({ 
-      title: new FormControl('TITEL'),
-      // description: new FormControl(''), 
-      // favorite: new FormControl(false), 
-      // state: new FormControl('BACKLOG'), 
-      // tags: new FormArray([
-      //   new FormGroup({
-      //     label: new FormControl('')
-      //   })
-      // ]),
-      // assignee: new FormGroup({ 
-      //   name: new FormControl(''), 
-      //   email: new FormControl('')
-      // }),
+      title: new FormControl('TITELs')
     });
   }
 

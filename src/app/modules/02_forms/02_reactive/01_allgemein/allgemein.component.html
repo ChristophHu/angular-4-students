@@ -1,22 +1,34 @@
-<form novalidate [formGroup]="taskForm" (ngSubmit)="saveTask(taskForm.value)">
-    <div class="form-group">
-      <label>Titel</label>
-      <input formControlName="title"/>
-    </div>
-    <!-- ...
-    <h4>Zuständiger</h4>
-    <div formGroupName="assignee">
+<div class="my-4">
+  <h3 class="leading-4 mb-2 text-xl">2.2.1 Allgemein</h3>
+  <div class="grid grid-cols-2 gap-4">
+    <form [formGroup]="taskForm" class="p-4 bg-gray-50 rounded">
       <div class="form-group">
-        <label>Name</label>
-        <input type="text" class="form-control" formControlName="name"/>
+        <!-- <label>Titel</label> -->
+        <!-- <input formControlName="title"/> -->
+        <label class="my-2 text-sm leading-none text-light" for="title">Titel</label>
+        <div class="relative mt-1 flex items-center">
+          <input type="text" name="title" formControlName="title" class="p-3 w-full bg-gray-100 border rounded border-gray-200 focus:outline-none focus:border-gray-600 text-sm font-medium leading-none text-light disabled:text-gray-400 disabled:pointer-events-none" />
+        </div>
       </div>
-      <div class="form-group">
-        <label>E-Mail</label>
-        <input type="text" class="form-control" formControlName="email"/> </div>
+      <!-- ...
+      <h4>Zuständiger</h4>
+      <div formGroupName="assignee">
+        <div class="form-group">
+          <label>Name</label>
+          <input type="text" class="form-control" formControlName="name"/>
+        </div>
+        <div class="form-group">
+          <label>E-Mail</label>
+          <input type="text" class="form-control" formControlName="email"/> </div>
+      </div>
+      ... -->
+      <button type="submit" class="btn btn-default" [disabled]="!taskForm.valid">
+        Aufgabe speichern
+      </button>
+    </form>
+    <div class="p-4 bg-blue-200 rounded-lg">
+      <pre>{{ taskForm.value | json }}</pre>
     </div>
-    ... -->
-    <button type="submit" class="btn btn-default" [disabled]="!taskForm.valid">
-      Aufgabe speichern
-    </button>
-  </form>
-  <pre>{{ taskForm | json }}</pre>
+  </div>
+</div>
+<hr>

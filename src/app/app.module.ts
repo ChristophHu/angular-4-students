@@ -18,6 +18,7 @@ import { SimpleFormComponent } from './modules/02_forms/01_template_driven/01_si
 import { TwoWayComponent } from './modules/02_forms/01_template_driven/02_two-way/two-way.component';
 import { WeitereComponent } from './modules/02_forms/01_template_driven/03_weitere/weitere.component';
 import { AllgemeinComponent } from './modules/02_forms/02_reactive/01_allgemein/allgemein.component';
+import { FormbuilderComponent } from './modules/02_forms/02_reactive/02_formbuilder/formbuilder.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { AllgemeinComponent } from './modules/02_forms/02_reactive/01_allgemein/
     SimpleFormComponent,
     TwoWayComponent,
     WeitereComponent,
-    AllgemeinComponent
+    AllgemeinComponent,
+    FormbuilderComponent
   ],
   imports: [
     BrowserModule,
