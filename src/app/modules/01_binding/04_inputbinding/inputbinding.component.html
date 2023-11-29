@@ -4,7 +4,7 @@
         <h3 class="leading-4 mb-2 text-lg">Parent-Component</h3>
         <div class="flex flex-row items-center">
             <label class="mr-2">Parent-Var:</label>
-            <input type="text" (keydown)="updateParent(inp.value)" #inp class="p-1 bg-gray-50 rounded">
+            <input type="text" (change)="updateParent(inp.value)" #inp class="p-1 bg-gray-50 rounded">
         </div>
         <input-child [inputVar]="parentVar"></input-child>
     </div>

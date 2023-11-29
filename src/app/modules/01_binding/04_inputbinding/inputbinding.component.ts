@@ -10,5 +10,6 @@ export class InputbindingComponent {
 
   updateParent(value: string) {
     this.parentVar = value
+    console.log('Parent Var: ', this.parentVar)
   }
 }
