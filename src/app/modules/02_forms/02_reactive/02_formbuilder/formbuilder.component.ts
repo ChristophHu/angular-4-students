@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Form, FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'formbuilder',
