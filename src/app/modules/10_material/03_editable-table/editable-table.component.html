@@ -1,18 +1,31 @@
 <div class="my-4">
   <h3 class="leading-4 mb-2 text-xl">10.2.2 Editable MatTable</h3>
+  <div class="grid grid-cols-2 gap-4 my-4">
+    <form [formGroup]="editableTable" class="p-4 bg-gray-50 rounded">
+      <div class="flex items-center w-full mt-2">
+        <div class="my-2 mr-2 bg-white dark:bg-gray-800 rounded-sm w-5 h-5 flex flex-shrink-0 justify-center items-center relative">
+          <input type="checkbox" formControlName="editable" class="w-full h-full focus:outline-none cursor-pointer" />
+        </div>
+        <label class="text-sm leading-none text-light">editable</label>
+      </div>
+    </form>
+    <div class="p-4 bg-blue-200 rounded-lg">
+      <pre class="text-xs">{{ editableTable.value | json }}</pre>
+    </div>
+  </div>
+  
   <div class="grid grid-cols-2 gap-4">
     <table mat-table [dataSource]="dataSource" matSort (matSortChange)="announceSortChange($event)"
         class="mat-elevation-z8">
 
-      <!-- Position Column -->
-      <ng-container matColumnDef="position">
+      <!-- Column by column -->
+      <!-- <ng-container matColumnDef="position">
         <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by number">
           No.
         </th>
         <td mat-cell *matCellDef="let element"> {{element.position}} </td>
       </ng-container>
 
-      <!-- Name Column -->
       <ng-container matColumnDef="name">
         <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by name">
           Name
@@ -20,7 +33,6 @@
         <td mat-cell *matCellDef="let element"> {{element.name}} </td>
       </ng-container>
 
-      <!-- Weight Column -->
       <ng-container matColumnDef="weight">
         <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by weight">
           Weight
@@ -28,16 +40,29 @@
         <td mat-cell *matCellDef="let element"> {{element.weight}} </td>
       </ng-container>
 
-      <!-- Symbol Column -->
       <ng-container matColumnDef="symbol">
         <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by symbol">
           Symbol
         </th>
         <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
-      </ng-container>
+      </ng-container> -->
 
+      <!-- All columns at once -->
+      <ng-container *ngFor="let column of displayedColumns" matColumnDef="{{ column }}" class="relative">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>{{ column }}</th>
+        <td mat-cell *matCellDef="let element" class="bg-yellow-200">
+          
+          <ng-container *ngIf="editableTable.get('editable')?.value; else notEditable">
+            <input type="text" [(ngModel)]="element[column]">
+          </ng-container>
+          <ng-template #notEditable>
+            {{ element[column] }}
+          </ng-template>
+        </td>
+        
+      </ng-container>
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;" ></tr>
     </table>
     <div class="p-4 bg-blue-200 rounded-lg">
       <pre class="text-xs">{{ ELEMENT_DATA | json }}</pre>
@@ -46,4 +71,4 @@
   <span>Beschreibung:</span>
   <p class="text-gray-500">Property (zu deutsch: Eigenschaft) sind Bestandteil von HTML-Tags. Diese können in Angular nicht nur gesetzt, sondern auch durch die Logik dynamisch gesetzt werden. Es handelt sich dabei um Property-Bindung. Die Properties sind dann in eckigen Klammern zu schreiben und mit einer Variablen zu versehen.</p>  
 </div>
-<hr>
+<hr class="my-8">

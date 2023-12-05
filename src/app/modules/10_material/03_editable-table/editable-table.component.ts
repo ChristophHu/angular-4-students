@@ -1,5 +1,6 @@
 import { LiveAnnouncer } from '@angular/cdk/a11y';
 import { Component, ViewChild } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { MatSort, Sort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 
@@ -27,7 +28,15 @@ export class EditableTableComponent {
   dataSource = new MatTableDataSource(this.ELEMENT_DATA)
   @ViewChild(MatSort) sort!: MatSort
 
-  constructor(private _liveAnnouncer: LiveAnnouncer) {}
+  editableTable: FormGroup
+
+  constructor(private _liveAnnouncer: LiveAnnouncer, private _formBuilder: FormBuilder) {
+    
+
+    this.editableTable = _formBuilder.group({
+      editable: [false],
+    })
+  }
   
   ngAfterViewInit() {
     this.dataSource.sort = this.sort
