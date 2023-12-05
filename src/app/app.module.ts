@@ -17,12 +17,13 @@ import { TwoWayComponent } from './modules/02_forms/01_template_driven/02_two-wa
 import { WeitereComponent } from './modules/02_forms/01_template_driven/03_weitere/weitere.component';
 import { AllgemeinComponent } from './modules/02_forms/02_reactive/01_allgemein/allgemein.component';
 // import { FormbuilderComponent } from './modules/02_forms/02_reactive/02_formbuilder/formbuilder.component';
-import { TableComponent } from './modules/10_material/02_table/table.component';
+import { TableComponent } from './modules/10_material/02_simple-table/table.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FormbuilderComponent } from './modules/02_forms/02_reactive/02_formbuilder/formbuilder.component';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatTableModule } from '@angular/material/table';
 import { MatSortModule } from '@angular/material/sort';
+import { EditableTableComponent } from './modules/10_material/03_editable-table/editable-table.component';
 
 @NgModule({
   declarations: [
@@ -47,9 +48,11 @@ import { MatSortModule } from '@angular/material/sort';
     // 10_material
     SnackbarComponent,
     TableComponent,
+    EditableTableComponent,
 
     ListComponent,
       ItemComponent,
+      
   ],
   imports: [
     BrowserModule,

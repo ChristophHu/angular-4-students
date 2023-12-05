@@ -1,5 +1,5 @@
 <div class="my-4">
-  <h3 class="leading-4 mb-2 text-xl">2.2.2 FormBuilder</h3>
+  <h3 class="leading-4 mb-2 text-xl">10.2.1 Simple MatTable</h3>
   <div class="grid grid-cols-2 gap-4">
     <table mat-table [dataSource]="dataSource" matSort (matSortChange)="announceSortChange($event)"
        class="mat-elevation-z8">
@@ -40,6 +40,10 @@
       <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
     </table>
     <div class="p-4 bg-blue-200 rounded-lg">
-      <pre>{{ ELEMENT_DATA | json }}</pre>
+      <pre class="text-xs">{{ ELEMENT_DATA | json }}</pre>
+    </div>
   </div>
+  <span>Beschreibung:</span>
+  <p class="text-gray-500">Property (zu deutsch: Eigenschaft) sind Bestandteil von HTML-Tags. Diese können in Angular nicht nur gesetzt, sondern auch durch die Logik dynamisch gesetzt werden. Es handelt sich dabei um Property-Bindung. Die Properties sind dann in eckigen Klammern zu schreiben und mit einer Variablen zu versehen.</p>  
 </div>
+<hr>
