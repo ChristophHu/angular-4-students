@@ -1,0 +1,15 @@
+<div class="my-4">
+    <h3 class="leading-4 mb-2 text-xl">4.1.1 LocalData</h3>
+    <div class="grid grid-cols-2 gap-4">
+        <div class="p-4 bg-gray-200 rounded-lg">
+            <ol *ngFor="let task of tasks; let i = index">
+                <li>{{ i+1}}. {{ task }}</li>
+            </ol>
+        </div>
+        <div class="p-4 bg-blue-200 rounded-lg">
+            <pre>{{ tasksOfObjects | json }}</pre>
+        </div>
+    </div>
+  </div>
+  <hr class="my-8">
+  

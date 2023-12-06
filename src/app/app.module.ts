@@ -24,6 +24,22 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatTableModule } from '@angular/material/table';
 import { MatSortModule } from '@angular/material/sort';
 import { EditableTableComponent } from './modules/10_material/03_editable-table/editable-table.component';
+import { RouterModule, Routes } from '@angular/router';
+import { RouterlinkComponent } from './modules/03_routing/routerlink/routerlink.component';
+import { RouterlinkModule } from './modules/03_routing/routerlink/routerlink.module';
+import { NavigationModule } from './modules/03_routing/navigation/navigation.module';
+import { ProgramaticallyModule } from './modules/03_routing/programatically/programatically.module';
+import { LocaldataComponent } from './modules/04_data/localdata/localdata.component';
+import { DataByServiceComponent } from './modules/04_data/data-by-service/component/data-by-service.component';
+import { DataByServiceModule } from './modules/04_data/data-by-service/data-by-service.module';
+import { HttpRequestModule } from './modules/04_data/http-request/request.module';
+
+export const routes: Routes = [
+  { path: 'routerlink', component: RouterlinkComponent },
+  { path: 'route00', loadChildren: () => import('./modules/03_routing/navigation/navigation.module').then(m => m.NavigationModule) }, 
+  { path: 'programatically', loadChildren: () => import('./modules/03_routing/programatically/programatically.module').then(m => m.ProgramaticallyModule) },
+  // { path: '', redirectTo: 'programatically', pathMatch: 'full' }
+]
 
 @NgModule({
   declarations: [
@@ -51,15 +67,30 @@ import { EditableTableComponent } from './modules/10_material/03_editable-table/
     EditableTableComponent,
 
     ListComponent,
-      ItemComponent,
+    ItemComponent,
+
+    // data
+    LocaldataComponent,
+
       
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+
     // forms
     FormsModule, // <-- import the FormsModule before binding with [(ngModel)]
     ReactiveFormsModule,
+
+    // routing
+    RouterModule.forRoot(routes),
+    RouterlinkModule,
+    // NavigationModule,
+    ProgramaticallyModule,
+
+    // data
+    DataByServiceModule,
+    HttpRequestModule,
 
     // material
     MatSnackBarModule,
