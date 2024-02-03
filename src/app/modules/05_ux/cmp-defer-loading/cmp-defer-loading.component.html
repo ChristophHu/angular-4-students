@@ -1,0 +1,41 @@
+<div class="my-4">
+    <h3 class="leading-4 mb-2 text-xl">4.1.1 LocalData</h3>
+    <div class="grid grid-cols-2 gap-4">
+        <div class="p-4 bg-gray-200 rounded-lg">
+            <table class="w-full">
+                <tr>
+                    <th>Index</th>
+                    <th>Task</th>
+                </tr>
+                @defer (when data$) {
+                    <tr *ngFor="let task of (data$ | async)">
+                        <td>{{ task.id }}</td>
+                        <td>{{ task.task }}</td>
+                    </tr>
+                }
+                @placeholder {
+                    <div class="flex h-10 w-full p-4 justify-center items-center bg-white rounded-b-lg">
+                        <span class="sr-only">Placeholder...</span>
+                    </div>
+                }
+                @loading {
+                    <div class="flex h-10 w-full p-4 justify-center items-center bg-white rounded-b-lg">
+                        <div class="w-8 h-8 fill-blue-600 text-gray-200 animate-spin">
+                            <icons class="" name="spinner"></icons>
+                        </div>
+                        <span class="sr-only">Loading...</span>
+                    </div>
+                }
+                @error {
+                    <div class="flex h-10 w-full p-4 justify-center items-center bg-white rounded-b-lg">
+                        <span>Es kam zu einem Fehler. Bitte melden Sie diesen!</span>
+                    </div>
+                }
+            </table>
+        </div>
+        <div class="p-4 bg-blue-200 rounded-lg">
+            <!-- <pre>{{ tasksOfObjects | json }}</pre> -->
+        </div>
+    </div>
+</div>
+<hr class="my-8">

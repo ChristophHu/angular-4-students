@@ -24,15 +24,15 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatTableModule } from '@angular/material/table';
 import { MatSortModule } from '@angular/material/sort';
 import { EditableTableComponent } from './modules/10_material/03_editable-table/editable-table.component';
-import { RouterModule, Routes } from '@angular/router';
 import { RouterlinkComponent } from './modules/03_routing/routerlink/routerlink.component';
 import { RouterlinkModule } from './modules/03_routing/routerlink/routerlink.module';
 import { NavigationModule } from './modules/03_routing/navigation/navigation.module';
 import { ProgramaticallyModule } from './modules/03_routing/programatically/programatically.module';
 import { LocaldataComponent } from './modules/04_data/localdata/localdata.component';
-import { DataByServiceComponent } from './modules/04_data/data-by-service/component/data-by-service.component';
 import { DataByServiceModule } from './modules/04_data/data-by-service/data-by-service.module';
 import { HttpRequestModule } from './modules/04_data/http-request/request.module';
+import { CmpDeferLoadingComponent } from './modules/05_ux/cmp-defer-loading/cmp-defer-loading.component';
+import { RouterModule, Routes } from '@angular/router';
 
 export const routes: Routes = [
   { path: 'routerlink', component: RouterlinkComponent },
@@ -72,7 +72,8 @@ export const routes: Routes = [
     // data
     LocaldataComponent,
 
-      
+    // 5 ux
+    CmpDeferLoadingComponent
   ],
   imports: [
     BrowserModule,
