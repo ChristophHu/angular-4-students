@@ -5,7 +5,7 @@ import { Component, Input } from '@angular/core';
   standalone: true,
   imports: [],
   template: `
-    <div class="h-24 bg-white shadow-lg rounded">
+    <div class="h-24 bg-gray-50 shadow-lg rounded">
       <div class="h-full" [class.shimmer]="animate"></div>
     </div>
   `,

@@ -1,14 +1,16 @@
 <div class="my-4">
-    <h3 class="leading-4 mb-2 text-xl">4.1.1 LocalData</h3>
-    @defer (on hover; prefetch on timer(5000)) {
+    <h3 class="leading-4 mb-2 text-xl">5.1.1 &#64;Defer-Shimmer</h3>
+    @defer (on viewport; prefetch on timer(5000)) {
         <!-- try playing around with various triggers, eg interaction, idle, ... -->
         <!-- try playing around with various prefetch, eg hover, timeout ... -->
-        Data
+        <div class="flex h-24 items-center justify-center bg-gray-50 shadow-lg rounded">
+            Data
+        </div>
       } @placeholder() {
         <!-- try adding "minimum: 100" & playing around with various values -->
         <!-- explore @placeholder & @loading interactions with various settings -->
-        <skeleton />
-      } @loading(minimum 1000) { 
+        <skeleton [animate]="true" />
+      } @loading(minimum 3000) { 
         <!-- try adding "after 100;" and the @loading block wont be displayed! -->
         <skeleton [animate]="true" />
       } @error {
