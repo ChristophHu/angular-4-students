@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { BehaviorSubject, Observable, delay, of } from 'rxjs';
 
 @Component({
-  selector: 'app-cmp-defer-loading',
+  selector: 'cmp-defer-loading',
   templateUrl: './cmp-defer-loading.component.html',
   styleUrls: ['./cmp-defer-loading.component.sass']
 })

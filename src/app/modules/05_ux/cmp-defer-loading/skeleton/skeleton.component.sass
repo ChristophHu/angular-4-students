@@ -1,0 +1,22 @@
+@keyframes shimmer 
+      from 
+        transform: translate3d(-150vw, 0, 0) rotate(20deg)
+      
+
+      to 
+        transform: translate3d(150vw, 0, 0) rotate(20deg)
+      
+    
+
+.shimmer
+    position: relative
+    clip-path: border-box
+    
+
+.shimmer::after
+    position: fixed
+    inset: -25%
+    content: ''
+    background: linear-gradient(90deg, transparent 10%, rgb(0 0 0 / 5%) 20%, transparent 30%)
+    animation: shimmer 2s infinite
+    
