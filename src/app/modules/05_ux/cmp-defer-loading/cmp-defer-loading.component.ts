@@ -8,6 +8,8 @@ import { BehaviorSubject, Observable, delay, of } from 'rxjs';
 })
 export class CmpDeferLoadingComponent implements OnInit {
   tableData: { id: string, task: string }[] = []
+  load: boolean = false
+  show: boolean = false
 
   private readonly _data = new BehaviorSubject<{ id: string, task: string }[]>([])
   data$: Observable<{ id: string, task: string }[]> = this._data.asObservable()
@@ -30,7 +32,7 @@ export class CmpDeferLoadingComponent implements OnInit {
       { id: '10', task: 'task 10' },
     ]
     of(this.tableData)
-    .pipe(delay(2000))
+    .pipe(delay(3000))
     .subscribe(data => {
       this._data.next(data)
     })
