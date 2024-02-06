@@ -10,6 +10,7 @@ export class CmpDeferLoadingComponent implements OnInit {
   tableData: { id: string, task: string }[] = []
   load: boolean = false
   show: boolean = false
+  show$: Observable<boolean> = of(true).pipe(delay(3000))
 
   private readonly _data = new BehaviorSubject<{ id: string, task: string }[]>([])
   data$: Observable<{ id: string, task: string }[]> = this._data.asObservable()
@@ -34,6 +35,7 @@ export class CmpDeferLoadingComponent implements OnInit {
     of(this.tableData)
     .pipe(delay(3000))
     .subscribe(data => {
+      this.show = true
       this._data.next(data)
     })
   }

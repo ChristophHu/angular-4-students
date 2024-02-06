@@ -20,9 +20,10 @@
     <div class="my-2"></div>
     <div class="flex flex-col">
         <button class="my-2 bg-blue-500 shadow-lg rounded" (click)="load=true">Load ({{ load }})</button>
-        <button class="my-2 bg-blue-500 shadow-lg rounded" (click)="show=true">Show ({{ show }})</button>
+        <button class="my-2 bg-blue-500 shadow-lg rounded" (click)="show=true">Show ({{ show$ | async }})</button>
     </div>
-    @defer (when show; prefetch when load) {
+    <!-- @defer (when show) { -->
+    @defer (when show$ | async) {
         <div class="flex h-24 items-center justify-center bg-gray-50 shadow-lg rounded">
             Data2
         </div>
