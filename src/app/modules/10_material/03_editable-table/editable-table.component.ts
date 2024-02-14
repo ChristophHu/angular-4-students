@@ -1,7 +1,6 @@
-import { LiveAnnouncer } from '@angular/cdk/a11y';
 import { Component, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { MatSort, Sort } from '@angular/material/sort';
+import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 
 export interface PeriodicElement {
@@ -30,9 +29,7 @@ export class EditableTableComponent {
 
   editableTable: FormGroup
 
-  constructor(private _liveAnnouncer: LiveAnnouncer, private _formBuilder: FormBuilder) {
-    
-
+  constructor(private _formBuilder: FormBuilder) {
     this.editableTable = _formBuilder.group({
       editable: [false],
     })
@@ -40,17 +37,5 @@ export class EditableTableComponent {
   
   ngAfterViewInit() {
     this.dataSource.sort = this.sort
-  }
-
-  announceSortChange(sortState: Sort) {
-    // This example uses English messages. If your application supports
-    // multiple language, you would internationalize these strings.
-    // Furthermore, you can customize the message to add additional
-    // details about the values being sorted.
-    if (sortState.direction) {
-      this._liveAnnouncer.announce(`Sorted ${sortState.direction}ending`);
-    } else {
-      this._liveAnnouncer.announce('Sorting cleared');
-    }
   }
 }
